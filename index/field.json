@@ -46,5 +46,11 @@
         "path": "src\/field\/d29d6854-bb4a-4fa2-83a1-5a1b9c9a0eaf",
         "settings": "src\/field\/d29d6854-bb4a-4fa2-83a1-5a1b9c9a0eaf\/item.json",
         "guid": "d29d6854-bb4a-4fa2-83a1-5a1b9c9a0eaf"
+    },
+    "fda23329-b769-4143-a76d-abfe0314e11a": {
+        "name": "enable_trace",
+        "path": "src\/field\/fda23329-b769-4143-a76d-abfe0314e11a",
+        "settings": "src\/field\/fda23329-b769-4143-a76d-abfe0314e11a\/item.json",
+        "guid": "fda23329-b769-4143-a76d-abfe0314e11a"
     }
 }
