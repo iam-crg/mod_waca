@@ -16,5 +16,17 @@
         "path": "src\/field\/fddbbe01-a435-481a-b09f-12cb97c71245",
         "settings": "src\/field\/fddbbe01-a435-481a-b09f-12cb97c71245\/item.json",
         "guid": "fddbbe01-a435-481a-b09f-12cb97c71245"
+    },
+    "c3eecfb8-d9ab-48ba-b9d0-4bfa607459f1": {
+        "name": "CALPAY Security Key",
+        "path": "src\/field\/c3eecfb8-d9ab-48ba-b9d0-4bfa607459f1",
+        "settings": "src\/field\/c3eecfb8-d9ab-48ba-b9d0-4bfa607459f1\/item.json",
+        "guid": "c3eecfb8-d9ab-48ba-b9d0-4bfa607459f1"
+    },
+    "f16e0e32-2550-465d-ae64-21345f8741df": {
+        "name": "apiUrl",
+        "path": "src\/field\/f16e0e32-2550-465d-ae64-21345f8741df",
+        "settings": "src\/field\/f16e0e32-2550-465d-ae64-21345f8741df\/item.json",
+        "guid": "f16e0e32-2550-465d-ae64-21345f8741df"
     }
 }
