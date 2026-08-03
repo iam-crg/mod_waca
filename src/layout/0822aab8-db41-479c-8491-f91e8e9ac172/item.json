@@ -1,0 +1,21 @@
+{
+    "name": "my_question",
+    "description": "my_question",
+    "dynamic_get": "1fc8191a-c038-41a6-8238-95bb957086aa",
+    "snippet": "0",
+    "guid": "0822aab8-db41-479c-8491-f91e8e9ac172",
+    "php_view": "",
+    "add_php_view": 0,
+    "layout": "<?php\r\n$version = explode (\".\", JVERSION)[0];\r\n\/\/echo $version .\"<br\/>\";\r\nswitch ($version)\r\n{\r\n\r\n  case '5':\r\n    $lang = Factory::getLanguage();\r\n    $lang->load('com_topiau', JPATH_ADMINISTRATOR);\r\n    $form = JForm::getInstance( 'com_topiau.question',  JPATH_COMPONENT_ADMINISTRATOR . '\/forms\/question.xml',array('control' => 'jform'));\r\n   \/\/ echo 'Control = [' . $form->getFormControl() . ']<br>';\r\n    break;\r\n}\r\n\r\n$form->bind($displayData );\r\n\r\n\/\/ get the fields\r\n$fields = array(\r\n  'question','answer'\r\n\r\n);\r\n$readonlyfields = array(\r\n  'answer'\r\n\r\n);\r\n\r\n?>\r\n\r\n\r\n\r\n<?php\r\n\r\nforeach ($fields as $fieldName)\r\n{\r\n  \/\/ Don't show the answer field if it is empty\r\n  if (\r\n    $fieldName === 'answer'\r\n    && trim((string) $form->getValue('answer')) === ''\r\n  ) {\r\n    continue;\r\n  }\r\n  if (in_array($fieldName, $readonlyfields, true))\r\n  {\r\n    $form->setFieldAttribute($fieldName, 'readonly', 'true');\r\n$form->setFieldAttribute($fieldName, 'class', 'readonly-answer');\r\n\r\n  }\r\n\r\n  echo $form->renderField($fieldName);\r\n}\r\n?>\r\n\r\n\r\n<input type=\"hidden\" name=\"task\" value=\"question.save\" \/>\r\n\r\n<?php echo Html::_('form.token'); ?>\r\n",
+    "libraries": null,
+    "alias": "my-question",
+    "@dependencies": [
+        {
+            "key": "guid",
+            "value": "1fc8191a-c038-41a6-8238-95bb957086aa",
+            "entity": "dynamic_get",
+            "table": "#__componentbuilder_dynamic_get",
+            "direction": "out"
+        }
+    ]
+}
