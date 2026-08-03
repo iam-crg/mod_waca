@@ -1,0 +1,9 @@
+{
+    "ba1e0f3b-2a48-4e9a-86e5-f9c9b20b48ea": {
+        "name": "WACA",
+        "desc": "Displays universities",
+        "path": "src\/joomla_module\/ba1e0f3b-2a48-4e9a-86e5-f9c9b20b48ea",
+        "settings": "src\/joomla_module\/ba1e0f3b-2a48-4e9a-86e5-f9c9b20b48ea\/item.json",
+        "guid": "ba1e0f3b-2a48-4e9a-86e5-f9c9b20b48ea"
+    }
+}
