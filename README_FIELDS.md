@@ -58,6 +58,8 @@ This preserves version control while allowing your own field improvements to liv
 
 
  - **Country** | [Details](src/field/d299b94d-42c5-4abd-b27a-9c0a4ad3a721) | [Settings](src/field/d299b94d-42c5-4abd-b27a-9c0a4ad3a721/item.json)
+ - **answer** | [Details](src/field/a86d7c74-6787-40f2-bb42-1522c9e61dd5) | [Settings](src/field/a86d7c74-6787-40f2-bb42-1522c9e61dd5/item.json)
+ - **question** | [Details](src/field/fddbbe01-a435-481a-b09f-12cb97c71245) | [Settings](src/field/fddbbe01-a435-481a-b09f-12cb97c71245/item.json)
 
 ### All used in [Joomla Component Builder](https://www.joomlacomponentbuilder.com) - [Source](https://git.vdm.dev/joomla/Component-Builder) - [Mirror](https://github.com/vdm-io/Joomla-Component-Builder) - [Download](https://git.vdm.dev/joomla/pkg-component-builder/releases)
 
