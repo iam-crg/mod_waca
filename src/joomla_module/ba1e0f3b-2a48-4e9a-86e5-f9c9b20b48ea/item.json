@@ -1,0 +1,70 @@
+{
+    "system_name": "WACA",
+    "target": 1,
+    "description": "Displays universities",
+    "add_php_postflight_install": 0,
+    "add_php_preflight_uninstall": 0,
+    "add_php_preflight_update": 0,
+    "update_server_target": 1,
+    "addreadme": 0,
+    "add_sql": 0,
+    "default": "<h1>Universities in <?php echo $country; ?><\/h1>\r\n<table class=\"table table-striped\" id=\"universityList\" >\r\n      <thead style=\"font-size:1.5em\"><tr><td>Country<\/td>\r\n        <td>State<\/td><td>University Name<\/td><td>URL<\/td><\/tr><\/thead>\r\n\t\t<tfoot><tr><td colsepan=4><\/td><\/tr><\/tfoot>\r\n\t\t<tbody>\r\n          <?php foreach ($universities as $item): ?>\r\n          <tr class='country'>\r\n            <td class='country'> <?php echo $item->country; ?><\/td>\r\n            <td class='country'><?php echo $item->state_province; ?> <\/td>\r\n            <td class='country'><?php echo $item->university; ?><\/td>\r\n            <td class='country'><a href='<?php echo $item->url; ?>'  target=\"_blank\">Visit Site<\/a><\/td>\r\n         <\/tr>\r\n          <?php  endforeach; ?>\r\n          <\/tbody>\r\n\t<\/table\r\n",
+    "default_header": "",
+    "snippet": "0",
+    "add_default_header": 0,
+    "add_php_postflight_update": 0,
+    "add_php_method_uninstall": 0,
+    "add_sql_uninstall": 0,
+    "add_update_server": 0,
+    "libraries": null,
+    "module_version": "1.0.0",
+    "php_preflight_install": "",
+    "php_preflight_update": "",
+    "layout_data": "    $helper = $this->getHelperFactory()->getHelper('WacaHelper', $data);\r\n\r\n    $params = $data['params'];\r\n\r\n    \/\/ Fixed: Added null-coalescing operator fallback string to satisfy PHP 8.1+ type rules\r\n    $data['moduleclass_sfx'] = htmlspecialchars(\r\n        $params->get('moduleclass_sfx') ?? '',\r\n        ENT_QUOTES,\r\n        'UTF-8'\r\n    );\r\n\r\n    $country = $params->get('country');\r\n\r\n    $data['country'] = $country;\r\n    $data['universities'] = $helper::getuniversities($country);\r\n",
+    "php_preflight_uninstall": "",
+    "custom_get": null,
+    "php_postflight_install": "",
+    "php_postflight_update": "",
+    "mod_code": "",
+    "php_method_uninstall": "",
+    "add_class_helper": 1,
+    "sql": "",
+    "add_class_helper_header": 1,
+    "sql_uninstall": "",
+    "class_helper_header": "use Joomla\\CMS\\Toolbar\\Toolbar;\r\nuse Joomla\\CMS\\Component\\ComponentHelper;\r\nuse Joomla\\CMS\\HTML\\HTMLHelper as Html;\r\nuse Joomla\\CMS\\Layout\\FileLayout;\r\nuse Joomla\\CMS\\MVC\\View\\HtmlView as BaseHtmlView;\r\nuse Joomla\\CMS\\Plugin\\PluginHelper;\r\nuse Joomla\\CMS\\Toolbar\\ToolbarHelper;\r\nuse Joomla\\CMS\\Document\\Document;\r\nuse JCB\\Component\\Calwest\\Site\\Helper\\HeaderCheck;\r\nuse JCB\\Component\\Calwest\\Site\\Helper\\CalwestHelper;\r\nuse JCB\\Component\\Calwest\\Site\\Helper\\RouteHelper;\r\nuse VDM\\Joomla\\Utilities\\StringHelper;\r\nuse Joomla\\CMS\\User\\User;",
+    "readme": "You can use all the normal markdown, including the place-holders.",
+    "class_helper_code": "\/\/Class Helper Properties & Methods\r\npublic static function initLogger(): void\r\n{\r\n    static $loggerSet = false;\r\n\r\n    if ($loggerSet)\r\n    {\r\n        return;\r\n    }\r\n\r\n    \/\/ Fixed: Using fully qualified namespace string to bypass compilation alias limits\r\n    \\Joomla\\CMS\\Log\\Log::addLogger(\r\n        [\r\n            'text_file' => 'waca.php',\r\n            'text_entry_format' => '{DATETIME} {PRIORITY} {CATEGORY} {MESSAGE}'\r\n        ],\r\n        \\Joomla\\CMS\\Log\\Log::ALL\r\n    );\r\n\r\n    $loggerSet = true;\r\n}\r\n\r\npublic static function initLoggerOLD(): void\r\n{\r\n    static $loggerSet = false;\r\n\r\n    if ($loggerSet) {\r\n      return;\r\n    }\r\n\r\n    \\Joomla\\CMS\\Log\\Log::addLogger(\r\n      [\r\n        'text_file' => 'waca.php',\r\n        'extension' => 'mod_waca',\r\n        'text_entry_format' => '{DATETIME} {PRIORITY} {CATEGORY} {MESSAGE}'\r\n      ],\r\n      \\Joomla\\CMS\\Log\\Log::ALL,\r\n      ['com_waca']\r\n    );\r\n\r\n    $loggerSet = true;\r\n}\r\n\r\n\/**\r\n * Example wrapper for error logging.\r\n *\/\r\npublic static function logError(string $message, array $context = []): void\r\n{\r\n    self::initLogger();\r\n\r\n    $fullMessage = $message;\r\n\r\n    if (!empty($context)) {\r\n      $fullMessage .= ' | Context: ' . json_encode($context, JSON_UNESCAPED_SLASHES);\r\n    }\r\n\r\n    \\Joomla\\CMS\\Log\\Log::add($fullMessage, \\Joomla\\CMS\\Log\\Log::ERROR, 'com_waca');\r\n}\r\n\r\npublic static function logTrace(string $message, array $context = []): void\r\n{\r\n    self::initLogger();\r\n\r\n    $fullMessage = $message;\r\n\r\n    if (!empty($context)) {\r\n      $fullMessage .= ' | Context: ' . json_encode($context, JSON_UNESCAPED_SLASHES);\r\n    }\r\n\r\n    \\Joomla\\CMS\\Log\\Log::add($fullMessage, \\Joomla\\CMS\\Log\\Log::NOTICE, 'com_waca');\r\n}  \r\n\r\npublic static function getuniversities($country)\r\n{\r\n    try\r\n    {\r\n        $db = Factory::getContainer()->get('db');\r\n        $app = Factory::getApplication();\r\n\r\n        \/\/ Create a new query object.\r\n        $query = $db->getQuery(true);\r\n\r\n        \/\/ Get from #__waca_university as a\r\n        $query->select('a.*');\r\n        $query->from($db->quoteName('#__waca_university', 'a'));\r\n\r\n        \/\/ Filtering.\r\n        $query->where('a.published = 1');\r\n        $query->andWhere('a.country = ' . $db->quote($country));\r\n\r\n        $db->setQuery($query);\r\n\r\n        self::logTrace('SQA', ['sql' => (string) $query]);\r\n\r\n        \/\/ Load the results as a list of stdClass objects\r\n        $results = $db->loadObjectList();\r\n        return $results;\r\n    }\r\n    catch (\\Exception $e)\r\n    {\r\n        Factory::getApplication()->enqueueMessage('Exception: ' . $e->getMessage(), 'error');\r\n        return [];\r\n    }\r\n}",
+    "update_server_url": "",
+    "fields": {
+        "fields0": {
+            "module": "1",
+            "file": "config",
+            "fields_name": "params",
+            "fieldset": "basic",
+            "label": "Country",
+            "fields_rules_paths": "1",
+            "addrulepath": [],
+            "addfieldpath": [],
+            "fields": {
+                "fields0": {
+                    "field": "d299b94d-42c5-4abd-b27a-9c0a4ad3a721",
+                    "custom_value": ""
+                }
+            }
+        }
+    },
+    "add_php_script_construct": 0,
+    "php_script_construct": "",
+    "add_php_preflight_install": 0,
+    "guid": "ba1e0f3b-2a48-4e9a-86e5-f9c9b20b48ea",
+    "name": "waca",
+    "@dependencies": [
+        {
+            "key": "guid",
+            "value": "d299b94d-42c5-4abd-b27a-9c0a4ad3a721",
+            "entity": "field",
+            "table": "#__componentbuilder_field",
+            "direction": "out"
+        }
+    ]
+}
