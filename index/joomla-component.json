@@ -5,5 +5,12 @@
         "settings": "src\/joomla_component\/881ba8ec-ba23-4d91-a5bb-89cd4d6d50a1\/item.json",
         "guid": "881ba8ec-ba23-4d91-a5bb-89cd4d6d50a1",
         "desc": "TOPIAU"
+    },
+    "20efe59b-0d50-4a61-8392-912fb902f951": {
+        "name": "WACA",
+        "path": "src\/joomla_component\/20efe59b-0d50-4a61-8392-912fb902f951",
+        "settings": "src\/joomla_component\/20efe59b-0d50-4a61-8392-912fb902f951\/item.json",
+        "guid": "20efe59b-0d50-4a61-8392-912fb902f951",
+        "desc": "WACA"
     }
 }
