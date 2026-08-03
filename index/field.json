@@ -28,5 +28,23 @@
         "path": "src\/field\/f16e0e32-2550-465d-ae64-21345f8741df",
         "settings": "src\/field\/f16e0e32-2550-465d-ae64-21345f8741df\/item.json",
         "guid": "f16e0e32-2550-465d-ae64-21345f8741df"
+    },
+    "74af1ce6-2ee5-4cd9-a7e9-e1297b641b7e": {
+        "name": "University",
+        "path": "src\/field\/74af1ce6-2ee5-4cd9-a7e9-e1297b641b7e",
+        "settings": "src\/field\/74af1ce6-2ee5-4cd9-a7e9-e1297b641b7e\/item.json",
+        "guid": "74af1ce6-2ee5-4cd9-a7e9-e1297b641b7e"
+    },
+    "9d1b2235-c8b0-4374-94de-a292ec2b72c9": {
+        "name": "State Province",
+        "path": "src\/field\/9d1b2235-c8b0-4374-94de-a292ec2b72c9",
+        "settings": "src\/field\/9d1b2235-c8b0-4374-94de-a292ec2b72c9\/item.json",
+        "guid": "9d1b2235-c8b0-4374-94de-a292ec2b72c9"
+    },
+    "d29d6854-bb4a-4fa2-83a1-5a1b9c9a0eaf": {
+        "name": "URL",
+        "path": "src\/field\/d29d6854-bb4a-4fa2-83a1-5a1b9c9a0eaf",
+        "settings": "src\/field\/d29d6854-bb4a-4fa2-83a1-5a1b9c9a0eaf\/item.json",
+        "guid": "d29d6854-bb4a-4fa2-83a1-5a1b9c9a0eaf"
     }
 }
