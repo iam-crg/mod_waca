@@ -1,0 +1,49 @@
+{
+    "admin_view": "e44f3232-1102-45a7-b2a6-00a0dc8e29b5",
+    "addfields": {
+        "0": {
+            "field": "fddbbe01-a435-481a-b09f-12cb97c71245",
+            "list": "1",
+            "order_list": "1",
+            "search": "1",
+            "filter": "",
+            "link": "1",
+            "tab": "1",
+            "alignment": 1,
+            "order_edit": "1"
+        },
+        "1": {
+            "field": "a86d7c74-6787-40f2-bb42-1522c9e61dd5",
+            "list": "1",
+            "order_list": "2",
+            "search": "1",
+            "filter": "",
+            "tab": "1",
+            "alignment": 1,
+            "order_edit": "2"
+        }
+    },
+    "@dependencies": [
+        {
+            "key": "guid",
+            "value": "e44f3232-1102-45a7-b2a6-00a0dc8e29b5",
+            "entity": "admin_view",
+            "table": "#__componentbuilder_admin_view",
+            "direction": "out"
+        },
+        {
+            "key": "guid",
+            "value": "fddbbe01-a435-481a-b09f-12cb97c71245",
+            "entity": "field",
+            "table": "#__componentbuilder_field",
+            "direction": "out"
+        },
+        {
+            "key": "guid",
+            "value": "a86d7c74-6787-40f2-bb42-1522c9e61dd5",
+            "entity": "field",
+            "table": "#__componentbuilder_field",
+            "direction": "out"
+        }
+    ]
+}
