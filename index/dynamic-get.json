@@ -1,0 +1,14 @@
+{
+    "1fc8191a-c038-41a6-8238-95bb957086aa": {
+        "name": "getQuestion",
+        "path": "src\/dynamic_get\/1fc8191a-c038-41a6-8238-95bb957086aa",
+        "settings": "src\/dynamic_get\/1fc8191a-c038-41a6-8238-95bb957086aa\/item.json",
+        "guid": "1fc8191a-c038-41a6-8238-95bb957086aa"
+    },
+    "ab91c8b0-2646-4e5a-85b7-af5857e1a272": {
+        "name": "myQuestions",
+        "path": "src\/dynamic_get\/ab91c8b0-2646-4e5a-85b7-af5857e1a272",
+        "settings": "src\/dynamic_get\/ab91c8b0-2646-4e5a-85b7-af5857e1a272\/item.json",
+        "guid": "ab91c8b0-2646-4e5a-85b7-af5857e1a272"
+    }
+}
