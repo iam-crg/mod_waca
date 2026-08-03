@@ -1,0 +1,26 @@
+{
+    "joomla_component": "20efe59b-0d50-4a61-8392-912fb902f951",
+    "addconfig": {
+        "addconfig0": {
+            "field": "fda23329-b769-4143-a76d-abfe0314e11a",
+            "custom_value": "",
+            "tabname": "Global"
+        }
+    },
+    "@dependencies": [
+        {
+            "key": "guid",
+            "value": "20efe59b-0d50-4a61-8392-912fb902f951",
+            "entity": "joomla_component",
+            "table": "#__componentbuilder_joomla_component",
+            "direction": "out"
+        },
+        {
+            "key": "guid",
+            "value": "fda23329-b769-4143-a76d-abfe0314e11a",
+            "entity": "field",
+            "table": "#__componentbuilder_field",
+            "direction": "out"
+        }
+    ]
+}
