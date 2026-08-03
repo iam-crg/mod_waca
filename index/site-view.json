@@ -1,0 +1,16 @@
+{
+    "ac1dc92b-62a7-487d-8b8f-bbfe333d702f": {
+        "name": "ask_my_question",
+        "desc": "ask_my_question",
+        "path": "src\/site_view\/ac1dc92b-62a7-487d-8b8f-bbfe333d702f",
+        "settings": "src\/site_view\/ac1dc92b-62a7-487d-8b8f-bbfe333d702f\/item.json",
+        "guid": "ac1dc92b-62a7-487d-8b8f-bbfe333d702f"
+    },
+    "dd2bbcd1-5441-4386-84c8-18ed27bed5e8": {
+        "name": "questions",
+        "desc": "Questions",
+        "path": "src\/site_view\/dd2bbcd1-5441-4386-84c8-18ed27bed5e8",
+        "settings": "src\/site_view\/dd2bbcd1-5441-4386-84c8-18ed27bed5e8\/item.json",
+        "guid": "dd2bbcd1-5441-4386-84c8-18ed27bed5e8"
+    }
+}
