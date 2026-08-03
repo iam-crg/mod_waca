@@ -1,0 +1,36 @@
+{
+    "joomla_component": "881ba8ec-ba23-4d91-a5bb-89cd4d6d50a1",
+    "addadmin_views": {
+        "addadmin_views0": {
+            "adminview": "e44f3232-1102-45a7-b2a6-00a0dc8e29b5",
+            "icomoon": "question-2",
+            "mainmenu": "1",
+            "dashboard_add": "1",
+            "dashboard_list": "1",
+            "checkin": "1",
+            "history": "1",
+            "joomla_fields": "1",
+            "port": "1",
+            "add_api": "0",
+            "filter": "2",
+            "edit_create_site_view": "1",
+            "order": "0"
+        }
+    },
+    "@dependencies": [
+        {
+            "key": "guid",
+            "value": "881ba8ec-ba23-4d91-a5bb-89cd4d6d50a1",
+            "entity": "joomla_component",
+            "table": "#__componentbuilder_joomla_component",
+            "direction": "out"
+        },
+        {
+            "key": "guid",
+            "value": "e44f3232-1102-45a7-b2a6-00a0dc8e29b5",
+            "entity": "admin_view",
+            "table": "#__componentbuilder_admin_view",
+            "direction": "out"
+        }
+    ]
+}
