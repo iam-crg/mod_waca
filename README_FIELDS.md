@@ -64,6 +64,7 @@ This preserves version control while allowing your own field improvements to liv
  - **University** | [Details](src/field/74af1ce6-2ee5-4cd9-a7e9-e1297b641b7e) | [Settings](src/field/74af1ce6-2ee5-4cd9-a7e9-e1297b641b7e/item.json)
  - **answer** | [Details](src/field/a86d7c74-6787-40f2-bb42-1522c9e61dd5) | [Settings](src/field/a86d7c74-6787-40f2-bb42-1522c9e61dd5/item.json)
  - **apiUrl** | [Details](src/field/f16e0e32-2550-465d-ae64-21345f8741df) | [Settings](src/field/f16e0e32-2550-465d-ae64-21345f8741df/item.json)
+ - **enable_trace** | [Details](src/field/fda23329-b769-4143-a76d-abfe0314e11a) | [Settings](src/field/fda23329-b769-4143-a76d-abfe0314e11a/item.json)
  - **question** | [Details](src/field/fddbbe01-a435-481a-b09f-12cb97c71245) | [Settings](src/field/fddbbe01-a435-481a-b09f-12cb97c71245/item.json)
 
 ### All used in [Joomla Component Builder](https://www.joomlacomponentbuilder.com) - [Source](https://git.vdm.dev/joomla/Component-Builder) - [Mirror](https://github.com/vdm-io/Joomla-Component-Builder) - [Download](https://git.vdm.dev/joomla/pkg-component-builder/releases)
