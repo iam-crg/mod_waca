@@ -1,0 +1,42 @@
+{
+    "name": "getQuestion",
+    "main_source": 2,
+    "gettype": 1,
+    "php_calculation": "",
+    "php_router_parse": null,
+    "add_php_after_getitems": 0,
+    "add_php_router_parse": 0,
+    "view_selection": "a.id AS id\r\na.asset_id AS asset_id\r\na.question AS question\r\na.answer AS answer\r\na.published AS published\r\na.created_by AS created_by\r\na.modified_by AS modified_by\r\na.created AS created\r\na.modified AS modified\r\na.version AS version\r\na.hits AS hits\r\na.ordering AS ordering",
+    "add_php_before_getitems": 0,
+    "add_php_before_getitem": 1,
+    "add_php_after_getitem": 0,
+    "db_table_main": "topiau_question",
+    "php_custom_get": null,
+    "plugin_events": null,
+    "db_selection": "a.*",
+    "view_table_main": null,
+    "add_php_getlistquery": 0,
+    "join_db_table": null,
+    "select_all": 1,
+    "php_before_getitem": "\/*\r\nif ($pk == 0){\r\nreturn parent::getTable('Question', 'Administrator');\r\n}\r\n*\/\r\n\r\nif (empty($pk))\r\n{\r\n    $item = new \\stdClass();\r\n    $item->id = 0;\r\n    $item->question = '';\r\n    $item->answer = '';\r\n\r\n    return $item;\r\n}",
+    "getcustom": "",
+    "php_after_getitem": "",
+    "pagination": 1,
+    "php_getlistquery": "",
+    "php_before_getitems": "",
+    "filter": null,
+    "php_after_getitems": "",
+    "where": {
+        "where0": {
+            "table_key": "a.id",
+            "operator": 1,
+            "value_key": "$this->input->getInt('id', null)"
+        }
+    },
+    "order": null,
+    "addcalculation": 0,
+    "group": null,
+    "global": null,
+    "guid": "1fc8191a-c038-41a6-8238-95bb957086aa",
+    "join_view_table": null
+}
