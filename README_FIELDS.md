@@ -59,6 +59,9 @@ This preserves version control while allowing your own field improvements to liv
 
  - **CALPAY Security Key** | [Details](src/field/c3eecfb8-d9ab-48ba-b9d0-4bfa607459f1) | [Settings](src/field/c3eecfb8-d9ab-48ba-b9d0-4bfa607459f1/item.json)
  - **Country** | [Details](src/field/d299b94d-42c5-4abd-b27a-9c0a4ad3a721) | [Settings](src/field/d299b94d-42c5-4abd-b27a-9c0a4ad3a721/item.json)
+ - **State Province** | [Details](src/field/9d1b2235-c8b0-4374-94de-a292ec2b72c9) | [Settings](src/field/9d1b2235-c8b0-4374-94de-a292ec2b72c9/item.json)
+ - **URL** | [Details](src/field/d29d6854-bb4a-4fa2-83a1-5a1b9c9a0eaf) | [Settings](src/field/d29d6854-bb4a-4fa2-83a1-5a1b9c9a0eaf/item.json)
+ - **University** | [Details](src/field/74af1ce6-2ee5-4cd9-a7e9-e1297b641b7e) | [Settings](src/field/74af1ce6-2ee5-4cd9-a7e9-e1297b641b7e/item.json)
  - **answer** | [Details](src/field/a86d7c74-6787-40f2-bb42-1522c9e61dd5) | [Settings](src/field/a86d7c74-6787-40f2-bb42-1522c9e61dd5/item.json)
  - **apiUrl** | [Details](src/field/f16e0e32-2550-465d-ae64-21345f8741df) | [Settings](src/field/f16e0e32-2550-465d-ae64-21345f8741df/item.json)
  - **question** | [Details](src/field/fddbbe01-a435-481a-b09f-12cb97c71245) | [Settings](src/field/fddbbe01-a435-481a-b09f-12cb97c71245/item.json)
