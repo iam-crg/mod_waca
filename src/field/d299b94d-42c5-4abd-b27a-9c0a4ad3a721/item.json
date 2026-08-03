@@ -1,0 +1,35 @@
+{
+    "name": "Country",
+    "fieldtype": "d4c16f1e-fd6e-4714-90eb-f9d97edd9c32",
+    "datatype": "VARCHAR",
+    "indexes": "0",
+    "null_switch": "NULL",
+    "store": 0,
+    "on_get_model_field": null,
+    "on_save_model_field": null,
+    "initiator_on_get_model": "",
+    "xml": "<field\n\ttype=\"sql\"\n\tname=\"country\"\n\tlabel=\"Country\"\n\tquery=\"SELECT a.name as id, a.name as title\r\nFROM #__[[[component]]]_countries a\r\nWHERE a.published = 1\r\nORDER BY a.name\"\n\tdefault=\"10\"\n\trequired=\"\"\n\treadonly=\"\"\n\tdisabled=\"\"\n\tdescription=\"\"\n\tkey_field=\"id\"\n\tvalue_field=\"title\"\n\ttranslate=\"\"\n\tshowon=\"\"\n\/>",
+    "datalenght": "255",
+    "javascript_view_footer": "",
+    "css_views": "",
+    "css_view": "",
+    "datadefault_other": "",
+    "datadefault": "",
+    "datalenght_other": "",
+    "javascript_views_footer": "",
+    "add_css_view": 0,
+    "add_css_views": 0,
+    "add_javascript_view_footer": 0,
+    "add_javascript_views_footer": 0,
+    "initiator_on_save_model": "",
+    "guid": "d299b94d-42c5-4abd-b27a-9c0a4ad3a721",
+    "@dependencies": [
+        {
+            "key": "guid",
+            "value": "d4c16f1e-fd6e-4714-90eb-f9d97edd9c32",
+            "entity": "fieldtype",
+            "table": "#__componentbuilder_fieldtype",
+            "direction": "out"
+        }
+    ]
+}
