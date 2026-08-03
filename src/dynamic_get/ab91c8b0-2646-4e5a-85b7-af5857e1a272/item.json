@@ -1,0 +1,42 @@
+{
+    "name": "myQuestions",
+    "main_source": 2,
+    "gettype": 2,
+    "php_calculation": "",
+    "php_router_parse": null,
+    "add_php_after_getitems": 0,
+    "add_php_router_parse": 0,
+    "view_selection": null,
+    "add_php_before_getitems": 0,
+    "add_php_before_getitem": 0,
+    "add_php_after_getitem": 0,
+    "db_table_main": "topiau_question",
+    "php_custom_get": null,
+    "plugin_events": null,
+    "db_selection": "a.*",
+    "view_table_main": null,
+    "add_php_getlistquery": 0,
+    "join_db_table": null,
+    "select_all": 1,
+    "php_before_getitem": "",
+    "getcustom": "",
+    "php_after_getitem": "",
+    "pagination": 1,
+    "php_getlistquery": "",
+    "php_before_getitems": "",
+    "filter": null,
+    "php_after_getitems": "",
+    "where": {
+        "where0": {
+            "table_key": "a.created_by",
+            "operator": 1,
+            "value_key": "$this->user->id"
+        }
+    },
+    "order": null,
+    "addcalculation": 0,
+    "group": null,
+    "global": null,
+    "guid": "ab91c8b0-2646-4e5a-85b7-af5857e1a272",
+    "join_view_table": null
+}
