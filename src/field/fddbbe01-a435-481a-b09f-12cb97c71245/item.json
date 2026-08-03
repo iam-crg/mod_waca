@@ -1,0 +1,35 @@
+{
+    "name": "question",
+    "fieldtype": "76fe1250-6fa7-49e5-a0ee-f06d8d4c9f99",
+    "datatype": "TEXT",
+    "indexes": "",
+    "null_switch": "NOT NULL",
+    "store": 0,
+    "on_get_model_field": null,
+    "on_save_model_field": null,
+    "initiator_on_get_model": "",
+    "xml": "<field\n\ttype=\"textarea\"\n\tname=\"question\"\n\tlabel=\"Question\"\n\trows=\"10\"\n\tcols=\"5\"\n\tdefault=\"\"\n\tdescription=\"Enter your question\"\n\tmessage=\"Error! Please add your question\"\n\tclass=\"text_area\"\n\tfilter=\"STRING\"\n\thint=\"Enter your question\"\n\trequired=\"true\"\n\tvalidate=\"\"\n\treadonly=\"false\"\n\tdisabled=\"false\"\n\tshowon=\"\"\n\tonchange=\"\"\n\/>",
+    "datalenght": "",
+    "javascript_view_footer": "",
+    "css_views": "",
+    "css_view": "",
+    "datadefault_other": "",
+    "datadefault": "",
+    "datalenght_other": "",
+    "javascript_views_footer": "",
+    "add_css_view": 0,
+    "add_css_views": 0,
+    "add_javascript_view_footer": 0,
+    "add_javascript_views_footer": 0,
+    "initiator_on_save_model": "",
+    "guid": "fddbbe01-a435-481a-b09f-12cb97c71245",
+    "@dependencies": [
+        {
+            "key": "guid",
+            "value": "76fe1250-6fa7-49e5-a0ee-f06d8d4c9f99",
+            "entity": "fieldtype",
+            "table": "#__componentbuilder_fieldtype",
+            "direction": "out"
+        }
+    ]
+}
