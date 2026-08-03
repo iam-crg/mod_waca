@@ -45,6 +45,7 @@ This ensures maintainability while still allowing total customization per projec
 ### Index of Admin Views
 
 
+ - **WACA  Universities** | [Details](src/admin_view/1eabd013-5049-46cc-9b9a-3a794efdc450) | [Settings](src/admin_view/1eabd013-5049-46cc-9b9a-3a794efdc450/item.json) | WACA Universities
  - **questions** | [Details](src/admin_view/e44f3232-1102-45a7-b2a6-00a0dc8e29b5) | [Settings](src/admin_view/e44f3232-1102-45a7-b2a6-00a0dc8e29b5/item.json) | Question
 
 ### All used in [Joomla Component Builder](https://www.joomlacomponentbuilder.com) - [Source](https://git.vdm.dev/joomla/Component-Builder) - [Mirror](https://github.com/vdm-io/Joomla-Component-Builder) - [Download](https://git.vdm.dev/joomla/pkg-component-builder/releases)
