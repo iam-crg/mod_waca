@@ -1,0 +1,35 @@
+{
+    "name": "URL",
+    "fieldtype": "8df6e07e-2b16-43ed-a18d-2059fa44cdf1",
+    "datatype": "VARCHAR",
+    "indexes": "0",
+    "null_switch": "NULL",
+    "store": 0,
+    "on_get_model_field": "",
+    "on_save_model_field": "",
+    "initiator_on_get_model": "",
+    "xml": "<field\n\ttype=\"url\"\n\tname=\"url\"\n\tlabel=\"URL\"\n\tsize=\"60\"\n\tmaxlength=\"150\"\n\tdescription=\"Enter url\"\n\tclass=\"text_area\"\n\trequired=\"true\"\n\tfilter=\"url\"\n\tvalidated=\"url\"\n\tscheme=\"http,https\"\n\tmessage=\"Error! Please add url here.\"\n\thint=\"http:\/\/www.example.com\"\n\/>",
+    "datalenght": "255",
+    "javascript_view_footer": "",
+    "css_views": "",
+    "css_view": "",
+    "datadefault_other": "",
+    "datadefault": "",
+    "datalenght_other": "",
+    "javascript_views_footer": "",
+    "add_css_view": 0,
+    "add_css_views": 0,
+    "add_javascript_view_footer": 0,
+    "add_javascript_views_footer": 0,
+    "initiator_on_save_model": "",
+    "guid": "d29d6854-bb4a-4fa2-83a1-5a1b9c9a0eaf",
+    "@dependencies": [
+        {
+            "key": "guid",
+            "value": "8df6e07e-2b16-43ed-a18d-2059fa44cdf1",
+            "entity": "fieldtype",
+            "table": "#__componentbuilder_fieldtype",
+            "direction": "out"
+        }
+    ]
+}
