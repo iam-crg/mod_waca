@@ -45,6 +45,7 @@ This ensures maintainability while still allowing total customization per projec
 ### Index of Admin Views
 
 
+ - **CalpayPayments** | [Details](src/admin_view/77d597cc-cc79-4985-ae08-55312b70d8e4) | [Settings](src/admin_view/77d597cc-cc79-4985-ae08-55312b70d8e4/item.json) | Calpay Payments
  - **WACA  Universities** | [Details](src/admin_view/1eabd013-5049-46cc-9b9a-3a794efdc450) | [Settings](src/admin_view/1eabd013-5049-46cc-9b9a-3a794efdc450/item.json) | WACA Universities
  - **questions** | [Details](src/admin_view/e44f3232-1102-45a7-b2a6-00a0dc8e29b5) | [Settings](src/admin_view/e44f3232-1102-45a7-b2a6-00a0dc8e29b5/item.json) | Question
 
