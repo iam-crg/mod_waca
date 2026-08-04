@@ -1,0 +1,35 @@
+{
+    "name": "Transaction Type",
+    "fieldtype": "201327fe-3067-4316-a155-3fe2a52e05c0",
+    "datatype": "VARCHAR",
+    "indexes": "0",
+    "null_switch": "NULL",
+    "store": 0,
+    "on_get_model_field": null,
+    "on_save_model_field": null,
+    "initiator_on_get_model": "",
+    "xml": "<field\n\ttype=\"text\"\n\tname=\"transaction_type\"\n\tlabel=\"Transaction Type\"\n\tsize=\"10\"\n\tmaxlength=\"50\"\n\tcharcounter=\"\"\n\tdefault=\"\"\n\tdescription=\"Transaction Type\"\n\tclass=\"text_area\"\n\treadonly=\"false\"\n\tdisabled=\"false\"\n\trequired=\"false\"\n\tfilter=\"STRING\"\n\tvalidate=\"\"\n\tfield=\"\"\n\tmessage=\"Error! Transaction Type\"\n\thint=\"Transaction Type\"\n\tautocomplete=\"on\"\n\tshowon=\"\"\n\tonchange=\"\"\n\/>",
+    "datalenght": "11",
+    "javascript_view_footer": "",
+    "css_views": "",
+    "css_view": "",
+    "datadefault_other": "",
+    "datadefault": "",
+    "datalenght_other": "",
+    "javascript_views_footer": "",
+    "add_css_view": 0,
+    "add_css_views": 0,
+    "add_javascript_view_footer": 0,
+    "add_javascript_views_footer": 0,
+    "initiator_on_save_model": "",
+    "guid": "d56e382d-a1e8-4afb-adee-c0bff52abed6",
+    "@dependencies": [
+        {
+            "key": "guid",
+            "value": "201327fe-3067-4316-a155-3fe2a52e05c0",
+            "entity": "fieldtype",
+            "table": "#__componentbuilder_fieldtype",
+            "direction": "out"
+        }
+    ]
+}
