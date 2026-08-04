@@ -52,5 +52,59 @@
         "path": "src\/field\/fda23329-b769-4143-a76d-abfe0314e11a",
         "settings": "src\/field\/fda23329-b769-4143-a76d-abfe0314e11a\/item.json",
         "guid": "fda23329-b769-4143-a76d-abfe0314e11a"
+    },
+    "2bde03cb-c09a-4f09-aee2-c03f0676a581": {
+        "name": "Customer",
+        "path": "src\/field\/2bde03cb-c09a-4f09-aee2-c03f0676a581",
+        "settings": "src\/field\/2bde03cb-c09a-4f09-aee2-c03f0676a581\/item.json",
+        "guid": "2bde03cb-c09a-4f09-aee2-c03f0676a581"
+    },
+    "662686e0-b0c2-4a06-b11b-5421eace7a13": {
+        "name": "Authorization Code",
+        "path": "src\/field\/662686e0-b0c2-4a06-b11b-5421eace7a13",
+        "settings": "src\/field\/662686e0-b0c2-4a06-b11b-5421eace7a13\/item.json",
+        "guid": "662686e0-b0c2-4a06-b11b-5421eace7a13"
+    },
+    "7927473d-b87f-4a16-8ed2-a27e139acda7": {
+        "name": "Order Description",
+        "path": "src\/field\/7927473d-b87f-4a16-8ed2-a27e139acda7",
+        "settings": "src\/field\/7927473d-b87f-4a16-8ed2-a27e139acda7\/item.json",
+        "guid": "7927473d-b87f-4a16-8ed2-a27e139acda7"
+    },
+    "7e8314a4-e6f5-4ac0-90b1-d916e10bed28": {
+        "name": "Product",
+        "path": "src\/field\/7e8314a4-e6f5-4ac0-90b1-d916e10bed28",
+        "settings": "src\/field\/7e8314a4-e6f5-4ac0-90b1-d916e10bed28\/item.json",
+        "guid": "7e8314a4-e6f5-4ac0-90b1-d916e10bed28"
+    },
+    "aa28d053-8456-4977-8126-119dc65ad6c1": {
+        "name": "Transaction Amount",
+        "path": "src\/field\/aa28d053-8456-4977-8126-119dc65ad6c1",
+        "settings": "src\/field\/aa28d053-8456-4977-8126-119dc65ad6c1\/item.json",
+        "guid": "aa28d053-8456-4977-8126-119dc65ad6c1"
+    },
+    "babcb176-a9ee-4113-9f8a-a89ae34e80b0": {
+        "name": "transaction_date",
+        "path": "src\/field\/babcb176-a9ee-4113-9f8a-a89ae34e80b0",
+        "settings": "src\/field\/babcb176-a9ee-4113-9f8a-a89ae34e80b0\/item.json",
+        "guid": "babcb176-a9ee-4113-9f8a-a89ae34e80b0"
+    },
+    "d3d7458c-4b9d-4008-b28a-a5143a9090fb": {
+        "name": "Transaction  Status",
+        "path": "src\/field\/d3d7458c-4b9d-4008-b28a-a5143a9090fb",
+        "settings": "src\/field\/d3d7458c-4b9d-4008-b28a-a5143a9090fb\/item.json",
+        "guid": "d3d7458c-4b9d-4008-b28a-a5143a9090fb"
+    },
+    "d56e382d-a1e8-4afb-adee-c0bff52abed6": {
+        "name": "Transaction Type",
+        "path": "src\/field\/d56e382d-a1e8-4afb-adee-c0bff52abed6",
+        "settings": "src\/field\/d56e382d-a1e8-4afb-adee-c0bff52abed6\/item.json",
+        "guid": "d56e382d-a1e8-4afb-adee-c0bff52abed6"
+    },
+    "e7c1df34-f3ac-4c33-9eff-ddacbe803cf7": {
+        "name": "Transaction ID",
+        "path": "src\/field\/e7c1df34-f3ac-4c33-9eff-ddacbe803cf7",
+        "settings": "src\/field\/e7c1df34-f3ac-4c33-9eff-ddacbe803cf7\/item.json",
+        "guid": "e7c1df34-f3ac-4c33-9eff-ddacbe803cf7"
     }
 }
