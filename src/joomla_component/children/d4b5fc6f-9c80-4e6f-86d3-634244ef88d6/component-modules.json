@@ -1,0 +1,18 @@
+{
+    "joomla_component": "d4b5fc6f-9c80-4e6f-86d3-634244ef88d6",
+    "addjoomla_modules": {
+        "addjoomla_modules1": {
+            "module": "0",
+            "target": "0"
+        }
+    },
+    "@dependencies": [
+        {
+            "key": "guid",
+            "value": "d4b5fc6f-9c80-4e6f-86d3-634244ef88d6",
+            "entity": "joomla_component",
+            "table": "#__componentbuilder_joomla_component",
+            "direction": "out"
+        }
+    ]
+}
