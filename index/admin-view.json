@@ -12,5 +12,12 @@
         "settings": "src\/admin_view\/1eabd013-5049-46cc-9b9a-3a794efdc450\/item.json",
         "guid": "1eabd013-5049-46cc-9b9a-3a794efdc450",
         "desc": "WACA Universities"
+    },
+    "77d597cc-cc79-4985-ae08-55312b70d8e4": {
+        "name": "CalpayPayments",
+        "path": "src\/admin_view\/77d597cc-cc79-4985-ae08-55312b70d8e4",
+        "settings": "src\/admin_view\/77d597cc-cc79-4985-ae08-55312b70d8e4\/item.json",
+        "guid": "77d597cc-cc79-4985-ae08-55312b70d8e4",
+        "desc": "Calpay Payments"
     }
 }
