@@ -1,0 +1,38 @@
+{
+    "joomla_component": "d4b5fc6f-9c80-4e6f-86d3-634244ef88d6",
+    "addconfig": {
+        "addconfig0": {
+            "field": "c3eecfb8-d9ab-48ba-b9d0-4bfa607459f1",
+            "custom_value": "",
+            "tabname": "CALPAY"
+        },
+        "addconfig1": {
+            "field": "f16e0e32-2550-465d-ae64-21345f8741df",
+            "custom_value": "",
+            "tabname": "CALPAY"
+        }
+    },
+    "@dependencies": [
+        {
+            "key": "guid",
+            "value": "d4b5fc6f-9c80-4e6f-86d3-634244ef88d6",
+            "entity": "joomla_component",
+            "table": "#__componentbuilder_joomla_component",
+            "direction": "out"
+        },
+        {
+            "key": "guid",
+            "value": "c3eecfb8-d9ab-48ba-b9d0-4bfa607459f1",
+            "entity": "field",
+            "table": "#__componentbuilder_field",
+            "direction": "out"
+        },
+        {
+            "key": "guid",
+            "value": "f16e0e32-2550-465d-ae64-21345f8741df",
+            "entity": "field",
+            "table": "#__componentbuilder_field",
+            "direction": "out"
+        }
+    ]
+}
