@@ -12,5 +12,12 @@
         "path": "src\/site_view\/dd2bbcd1-5441-4386-84c8-18ed27bed5e8",
         "settings": "src\/site_view\/dd2bbcd1-5441-4386-84c8-18ed27bed5e8\/item.json",
         "guid": "dd2bbcd1-5441-4386-84c8-18ed27bed5e8"
+    },
+    "20d5e9d8-8902-446b-910f-bd95702ce651": {
+        "name": "CALPAY Transactions",
+        "desc": "CALPAY Transactions",
+        "path": "src\/site_view\/20d5e9d8-8902-446b-910f-bd95702ce651",
+        "settings": "src\/site_view\/20d5e9d8-8902-446b-910f-bd95702ce651\/item.json",
+        "guid": "20d5e9d8-8902-446b-910f-bd95702ce651"
     }
 }
