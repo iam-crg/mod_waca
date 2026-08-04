@@ -10,5 +10,11 @@
         "path": "src\/dynamic_get\/ab91c8b0-2646-4e5a-85b7-af5857e1a272",
         "settings": "src\/dynamic_get\/ab91c8b0-2646-4e5a-85b7-af5857e1a272\/item.json",
         "guid": "ab91c8b0-2646-4e5a-85b7-af5857e1a272"
+    },
+    "564dbab8-4c24-4713-853b-99807df3fe4f": {
+        "name": "dummylist",
+        "path": "src\/dynamic_get\/564dbab8-4c24-4713-853b-99807df3fe4f",
+        "settings": "src\/dynamic_get\/564dbab8-4c24-4713-853b-99807df3fe4f\/item.json",
+        "guid": "564dbab8-4c24-4713-853b-99807df3fe4f"
     }
 }
