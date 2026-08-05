@@ -106,5 +106,29 @@
         "path": "src\/field\/e7c1df34-f3ac-4c33-9eff-ddacbe803cf7",
         "settings": "src\/field\/e7c1df34-f3ac-4c33-9eff-ddacbe803cf7\/item.json",
         "guid": "e7c1df34-f3ac-4c33-9eff-ddacbe803cf7"
+    },
+    "1c779c3a-ee1f-46b9-8362-2d518de66f1f": {
+        "name": "allow_non_latin",
+        "path": "src\/field\/1c779c3a-ee1f-46b9-8362-2d518de66f1f",
+        "settings": "src\/field\/1c779c3a-ee1f-46b9-8362-2d518de66f1f\/item.json",
+        "guid": "1c779c3a-ee1f-46b9-8362-2d518de66f1f"
+    },
+    "2a0b3538-9e6b-40b8-a916-402db93f9783": {
+        "name": "log_path",
+        "path": "src\/field\/2a0b3538-9e6b-40b8-a916-402db93f9783",
+        "settings": "src\/field\/2a0b3538-9e6b-40b8-a916-402db93f9783\/item.json",
+        "guid": "2a0b3538-9e6b-40b8-a916-402db93f9783"
+    },
+    "ca90447c-49db-4ce1-9d5a-f8d453ac0b06": {
+        "name": "enable_logging",
+        "path": "src\/field\/ca90447c-49db-4ce1-9d5a-f8d453ac0b06",
+        "settings": "src\/field\/ca90447c-49db-4ce1-9d5a-f8d453ac0b06\/item.json",
+        "guid": "ca90447c-49db-4ce1-9d5a-f8d453ac0b06"
+    },
+    "df8eb142-cdfc-4e8c-ab6a-5e7cde268440": {
+        "name": "Banned Words",
+        "path": "src\/field\/df8eb142-cdfc-4e8c-ab6a-5e7cde268440",
+        "settings": "src\/field\/df8eb142-cdfc-4e8c-ab6a-5e7cde268440\/item.json",
+        "guid": "df8eb142-cdfc-4e8c-ab6a-5e7cde268440"
     }
 }
