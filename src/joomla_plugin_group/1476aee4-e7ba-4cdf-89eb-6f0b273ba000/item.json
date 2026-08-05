@@ -1,0 +1,14 @@
+{
+    "name": "contact",
+    "class_extends": "3af8bca3-e557-43a2-9488-049e87bd4ee4",
+    "guid": "1476aee4-e7ba-4cdf-89eb-6f0b273ba000",
+    "@dependencies": [
+        {
+            "key": "guid",
+            "value": "3af8bca3-e557-43a2-9488-049e87bd4ee4",
+            "entity": "class_extends",
+            "table": "#__componentbuilder_class_extends",
+            "direction": "out"
+        }
+    ]
+}
