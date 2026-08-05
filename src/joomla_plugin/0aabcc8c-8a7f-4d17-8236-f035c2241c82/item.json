@@ -1,0 +1,111 @@
+{
+    "system_name": "EnglishFilter",
+    "class_extends": "3af8bca3-e557-43a2-9488-049e87bd4ee4",
+    "joomla_plugin_group": "1476aee4-e7ba-4cdf-89eb-6f0b273ba000",
+    "add_sql": 0,
+    "add_php_method_uninstall": 0,
+    "add_php_postflight_update": 0,
+    "add_php_postflight_install": 0,
+    "add_update_server": 1,
+    "method_selection": null,
+    "property_selection": null,
+    "add_head": 1,
+    "add_sql_uninstall": 0,
+    "addreadme": 0,
+    "head": "require_once JPATH_ROOT . '\/vendor\/autoload.php';\r\nuse Joomla\\CMS\\Plugin\\CMSPlugin;\r\nuse Joomla\\CMS\\Factory;\r\nuse Joomla\\CMS\\Log\\Log;\r\nuse LanguageDetection\\Language;",
+    "update_server_target": 2,
+    "main_class_code": " \/**\r\n\t * Server-side validation for contact form\r\n\t *\/\r\n\tpublic function onValidateContact(&$contact, &$data)\r\n\t{\r\n\t\t$app = Factory::getApplication();\r\n\t\t$ld  = new Language();\r\n\r\n\t\tif (!isset($data)) {\r\n\t\t\treturn true;\r\n\t\t}\r\n\r\n\t\t$message = '';\r\n\t\tif (is_array($data)) {\r\n\t\t\t$message = $data['contact_message'] ?? $data['message'] ?? '';\r\n\t\t} elseif (is_object($data)) {\r\n\t\t\t$message = $data->contact_message ?? $data->message ?? '';\r\n\t\t}\r\n\r\n\t\t$message = trim((string) $message);\r\n\t\tif ($message === '') {\r\n\t\t\treturn true;\r\n\t\t}\r\n\r\n\t\t$allowNonLatin = (bool) $this->params->get('allow_non_latin', 0);\r\n\r\n\t\t$plugin = $this;\r\n\t\t$redirectBack = function ($msg, $reason) use ($app, $data, $contact, $plugin) {\r\n\t\t\t$app->enqueueMessage($msg, 'warning');\r\n\t\t\t$plugin->logBlocked($data['contact_message'] ?? '', $reason, $data);\r\n\t\t\t$app->setUserState('com_contact.contact.data', $data);\r\n\t\t\t$app->getSession()->set('com_contact.contact.error', $msg);\r\n\r\n\t\t\t$url = \\Joomla\\CMS\\Router\\Route::_('index.php?option=com_contact&view=contact&id=' . (int) $contact->id, false);\r\n\t\t\t$app->redirect($url);\r\n\t\t\treturn false;\r\n\t\t};\r\n\r\n\t\t\/\/ 1\ufe0f\u20e3 Block non-ASCII characters (if not allowed) \r\n               \/\/ 23 Oct 2025 allow common English smart quotes\/dashes whitelists the curly punctuation characters used by Word\/Outlook.\r\n\t\tif (    !$allowNonLatin &&    preg_match('\/[^\\x00-\\x7F\\u2013\\u2014\\u2018\\u2019\\u201C\\u201D]\/u', $message)) {\r\n\t\t\t return $redirectBack('Please write your message in English (ASCII or standard punctuation only).', 'non-latin');\r\n\t\t}\r\n\r\n\r\n\t\t\/\/ 2\ufe0f\u20e3 Block links\r\n\t\tif (preg_match('\/https?:\\\/\\\/[^\\s]+|www\\.[^\\s]+\/i', $message)) {\r\n\t\t\treturn $redirectBack('Messages containing links are not allowed.', 'contains-link');\r\n\t\t}\r\n\r\n\t\t\/\/ 3\ufe0f\u20e3 Block email addresses\r\n\t\tif (preg_match('\/[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}\/i', $message)) {\r\n\t\t\treturn $redirectBack('Please remove any email addresses before submitting.', 'contains-email');\r\n\t\t}\r\n\r\n\t\t\/\/ 4\ufe0f\u20e3 Block banned words\r\n\t\t$bannedWords = (string) $this->params->get('banned_words', '');\r\n\t\t$bannedList  = array_filter(array_map('trim', explode(\"\\n\", $bannedWords)));\r\n\r\n\t\tforeach ($bannedList as $word) {\r\n\t\t\tif ($word && stripos($message, $word) !== false) {\r\n\t\t\t\treturn $redirectBack('Your message contains blocked content and cannot be sent.', \"banned: $word\");\r\n\t\t\t}\r\n\t\t}\r\n\r\n\t\t\/\/ 5\ufe0f\u20e3 Detect non-English message\r\n\t\tif (class_exists('LanguageDetection\\Language')) {\r\n\t\t\t$detected = $ld->detect($message)->bestResults()->close();\r\n\t\t\t$language = key($detected);\r\n\r\n\t\t\tif ($language !== 'en') {\r\n\t\t\t\treturn $redirectBack('Please write your message in English.', 'non-english: ' . $language);\r\n\t\t\t}\r\n\t\t}\r\n\r\n\t\treturn true;\r\n\t}\r\n\r\n\t\/**\r\n\t * Log blocked messages with extra info\r\n\t *\/\r\n\tprotected function logBlocked($message, $reason, $data = [])\r\n\t{\r\n\t\t$enableLogging = (bool) $this->params->get('enable_logging', 1);\r\n\t\tif (!$enableLogging) {\r\n\t\t\treturn;\r\n\t\t}\r\n\r\n\t\tLog::addLogger(\r\n\t\t\t[\r\n\t\t\t\t'text_file'  => 'non_english_attempts.log',\r\n\t\t\t\t'extension'  => 'plg_englishfilter',\r\n\t\t\t],\r\n\t\t\tLog::ALL,\r\n\t\t\t['contactfilter']\r\n\t\t);\r\n\r\n\t\t$ip   = $_SERVER['REMOTE_ADDR'] ?? 'unknown';\r\n\t\t$time = date('Y-m-d H:i:s');\r\n\r\n\t\t\/\/ Extract name and email safely\r\n\t\t$name  = '';\r\n\t\t$email = '';\r\n\r\n\t\tif (is_array($data)) {\r\n\t\t\t$name  = $data['contact_name']  ?? $data['name']  ?? '';\r\n\t\t\t$email = $data['contact_email'] ?? $data['email'] ?? '';\r\n\t\t} elseif (is_object($data)) {\r\n\t\t\t$name  = $data->contact_name  ?? $data->name  ?? '';\r\n\t\t\t$email = $data->contact_email ?? $data->email ?? '';\r\n\t\t}\r\n\r\n\t\t$name  = trim((string) $name) ?: 'unknown';\r\n\t\t$email = trim((string) $email) ?: 'unknown';\r\n\t\t$flatMessage = str_replace([\"\\r\", \"\\n\"], ' ', $message);\r\n\r\n\t\t\/\/ Build the log entry\r\n\t\t$entry = sprintf(\r\n\t\t\t'[%s] IP=%s NAME=%s EMAIL=%s REASON=%s MESSAGE=%s',\r\n\t\t\t$time,\r\n\t\t\t$ip,\r\n\t\t\t$name,\r\n\t\t\t$email,\r\n\t\t\t$reason,\r\n\t\t\t$flatMessage\r\n\t\t);\r\n\r\n\t\tLog::add($entry, Log::INFO, 'contactfilter');\r\n\t}\r\n",
+    "description": "This Plugin validate message as English language\r\n\r\n Block non-ASCII (23 Oct 2025 allow common English smart quotes\/dashes whitelists the curly punctuation characters used by Word\/Outlook.)\r\n Block links\r\n Block emails in message\r\n Block banned words\r\n Detect non-English message\r\n\r\nLogs to message not sent if set\r\n",
+    "php_postflight_install": "",
+    "plugin_version": "1.0.4",
+    "php_postflight_update": "",
+    "fields": {
+        "fields0": {
+            "plugin": "1",
+            "file": "config",
+            "fields_name": "params",
+            "fieldset": "basic",
+            "label": "",
+            "fields_rules_paths": "1",
+            "addrulepath": {},
+            "addfieldpath": {},
+            "fields": {
+                "fields0": {
+                    "field": "1c779c3a-ee1f-46b9-8362-2d518de66f1f",
+                    "custom_value": ""
+                },
+                "fields1": {
+                    "field": "df8eb142-cdfc-4e8c-ab6a-5e7cde268440",
+                    "custom_value": ""
+                },
+                "fields2": {
+                    "field": "ca90447c-49db-4ce1-9d5a-f8d453ac0b06",
+                    "custom_value": ""
+                },
+                "fields3": {
+                    "field": "2a0b3538-9e6b-40b8-a916-402db93f9783",
+                    "custom_value": ""
+                }
+            }
+        }
+    },
+    "php_method_uninstall": "",
+    "add_php_script_construct": 0,
+    "sql": "",
+    "php_script_construct": "",
+    "sql_uninstall": "",
+    "add_php_preflight_install": 0,
+    "readme": "You can use all the normal markdown, including the place-holders.",
+    "php_preflight_install": "",
+    "update_server_url": "https:\/\/demo4.calwest.org\/updates\/plugins\/englishfilter\/update.xml",
+    "add_php_preflight_update": 0,
+    "php_preflight_update": "",
+    "add_php_preflight_uninstall": 0,
+    "php_preflight_uninstall": "",
+    "guid": "0aabcc8c-8a7f-4d17-8236-f035c2241c82",
+    "name": "Englishfilter",
+    "@dependencies": [
+        {
+            "key": "guid",
+            "value": "3af8bca3-e557-43a2-9488-049e87bd4ee4",
+            "entity": "class_extends",
+            "table": "#__componentbuilder_class_extends",
+            "direction": "out"
+        },
+        {
+            "key": "guid",
+            "value": "1476aee4-e7ba-4cdf-89eb-6f0b273ba000",
+            "entity": "joomla_plugin_group",
+            "table": "#__componentbuilder_joomla_plugin_group",
+            "direction": "out"
+        },
+        {
+            "key": "guid",
+            "value": "1c779c3a-ee1f-46b9-8362-2d518de66f1f",
+            "entity": "field",
+            "table": "#__componentbuilder_field",
+            "direction": "out"
+        },
+        {
+            "key": "guid",
+            "value": "df8eb142-cdfc-4e8c-ab6a-5e7cde268440",
+            "entity": "field",
+            "table": "#__componentbuilder_field",
+            "direction": "out"
+        },
+        {
+            "key": "guid",
+            "value": "ca90447c-49db-4ce1-9d5a-f8d453ac0b06",
+            "entity": "field",
+            "table": "#__componentbuilder_field",
+            "direction": "out"
+        },
+        {
+            "key": "guid",
+            "value": "2a0b3538-9e6b-40b8-a916-402db93f9783",
+            "entity": "field",
+            "table": "#__componentbuilder_field",
+            "direction": "out"
+        }
+    ]
+}
