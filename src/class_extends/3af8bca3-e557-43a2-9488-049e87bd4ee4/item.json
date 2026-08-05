@@ -1,0 +1,7 @@
+{
+    "name": "CMSPlugin",
+    "extension_type": "plugins",
+    "guid": "3af8bca3-e557-43a2-9488-049e87bd4ee4",
+    "head": "use Joomla\\CMS\\Plugin\\CMSPlugin;\r\nuse Joomla\\CMS\\Factory;\r\nuse Joomla\\CMS\\Log\\Log;\r\nuse Joomla\\CMS\\Filesystem\\File;",
+    "comment": ""
+}
