@@ -3,6 +3,7 @@
 
 ## HTML:
 ```html
+  <!--[JCBGUI.site_view.default.28.$$$$]-->
   <div class="row mb-3">
     <div class="col-md-3">
       <label for="from_date" class="form-label">
@@ -67,20 +68,27 @@
   ?>
 
 
-  <h3>
-    <?php echo $this->approvedOnly ? 'Approved' : 'All'; ?>
-    Transactions between
-    <?php echo htmlspecialchars($fromDateLabel); ?>
-    and
-    <?php echo htmlspecialchars($toDateLabel); ?>
-  </h3>
+
   <table class="calpay-table">
+
     <thead>
+    <tr>
+         <th colspan="13" class="text-center">
+            <h3 class="mb-0">
+                Transactions (<?php echo $this->approvedOnly ? 'Approved Only' : 'All'; ?>)
+                between
+                <?php echo htmlspecialchars($fromDateLabel, ENT_QUOTES, 'UTF-8'); ?>
+                and
+                <?php echo htmlspecialchars($toDateLabel, ENT_QUOTES, 'UTF-8'); ?>
+            </h3>
+        </th>
+    </tr>
       <tr>
         <th>Response</th>
         <th>User Name</th>
         <th>Transaction ID</th>
-        <th>Date</th>
+
+        <th style='nowrap'>Date</th>
         <th>Authorization</th>
         <th>Type</th>
         <th>Amount</th>
@@ -104,6 +112,9 @@
           $this->toDate
         );
 
+        //Factory::getApplication()->enqueueMessage(print_r($result), 'info');
+
+
         if ($result && ($xml = simplexml_load_string($result)) !== false)
         {
           foreach ($xml as $tx)
@@ -123,13 +134,11 @@
             {
               continue;
             }
-
             echo '<tr class="' . ($isFailed ? 'failed-transaction' : '') . '">';
 
             echo '<td>' . htmlspecialchars((string) $tx->action->response_code . ' ' . (string) $tx->action->success) . '</td>';
             echo '<td>' . htmlspecialchars((string) $tx->action->username) . '</td>';
             echo '<td>' . htmlspecialchars((string) $tx->transaction_id) . '</td>';
-
             $date = \DateTime::createFromFormat('YmdHis', (string) $tx->action->date);
 
             echo '<td>' . ($date ? $date->format('d M Y') : '') . '</td>';
