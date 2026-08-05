@@ -1,0 +1,9 @@
+{
+    "0aabcc8c-8a7f-4d17-8236-f035c2241c82": {
+        "name": "EnglishFilter",
+        "desc": "This Plugin validate message as English language\r\n\r\n Block non-ASCII (23 Oct 2025 allow common English smart quotes\/dashes whitelists the curly punctuation characters used by Word\/Outlook.)\r\n Block links\r\n Block emails in message\r\n Block banned words\r\n Detect non-English message\r\n\r\nLogs to message not sent if set\r\n",
+        "path": "src\/joomla_plugin\/0aabcc8c-8a7f-4d17-8236-f035c2241c82",
+        "settings": "src\/joomla_plugin\/0aabcc8c-8a7f-4d17-8236-f035c2241c82\/item.json",
+        "guid": "0aabcc8c-8a7f-4d17-8236-f035c2241c82"
+    }
+}
