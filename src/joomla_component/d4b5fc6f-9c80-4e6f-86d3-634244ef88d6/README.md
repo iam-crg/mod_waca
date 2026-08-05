@@ -1,6 +1,8 @@
 ### JCB! Joomla Component
-# CalPay Payments (v1.0.0)
+# CalPay Payments (v1.0.1)
 ## CalPay payments (Calpay)
+
+Display transactions
 
 ### Company Details
 - Cybertron
