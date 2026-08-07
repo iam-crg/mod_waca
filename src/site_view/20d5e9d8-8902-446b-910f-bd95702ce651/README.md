@@ -71,17 +71,17 @@
   <table class="calpay-table">
 
     <thead>
-    <tr>
-         <th colspan="13" class="text-center">
-            <h3 class="mb-0">
-                Transactions (<?php echo $this->approvedOnly ? 'Approved Only' : 'All'; ?>)
-                between
-                <?php echo htmlspecialchars($fromDateLabel, ENT_QUOTES, 'UTF-8'); ?>
-                and
-                <?php echo htmlspecialchars($toDateLabel, ENT_QUOTES, 'UTF-8'); ?>
-            </h3>
+      <tr>
+        <th colspan="13" class="text-center">
+          <h3 class="mb-0">
+            Transactions (<?php echo $this->approvedOnly ? 'Approved Only' : 'All'; ?>)
+            between
+            <?php echo htmlspecialchars($fromDateLabel, ENT_QUOTES, 'UTF-8'); ?>
+            and
+            <?php echo htmlspecialchars($toDateLabel, ENT_QUOTES, 'UTF-8'); ?>
+          </h3>
         </th>
-    </tr>
+      </tr>
       <tr>
         <th>Response</th>
         <th>User Name</th>
@@ -101,76 +101,80 @@
 
       </tr></thead>
     <tbody>
-<?php
+      <?php
 
-if (!empty($this->fromDate) && !empty($this->toDate))
-{
-    $result = CalpayHelper::getTransactions(
-        $this->params,
-        $this->fromDate,
-        $this->toDate
-    );
+      if (!empty($this->fromDate) && !empty($this->toDate))
+      {
+        $result = CalpayHelper::getTransactions(
+          $this->params,
+          $this->fromDate,
+          $this->toDate
+        );
 
-    if ($result && ($xml = simplexml_load_string($result)) !== false)
-    {
-
-        $allTransactions = [];
-
-        $totalAmount = 0;
-        $totalQuantity = 0;
-        $totalTransactions = 0;
-
-
-        // Filter transactions first
-        foreach ($xml as $tx)
+        if ($result && ($xml = simplexml_load_string($result)) !== false)
         {
+
+          $allTransactions = [];
+
+          $totalAmount = 0;
+          $totalQuantity = 0;
+          $totalTransactions = 0;
+
+
+          // Filter transactions first
+          foreach ($xml as $tx)
+          {
             $isApproved = (
-                (string) $tx->action->response_code === '100'
-                && (string) $tx->action->success === '1'
+              (string) $tx->action->response_code === '100'
+              && (string) $tx->action->success === '1'
             );
 
             if ($this->approvedOnly && !$isApproved)
             {
-                continue;
+              continue;
             }
 
             $allTransactions[] = $tx;
 
-            $totalTransactions++;
-            $totalAmount += (float) $tx->action->amount;
-            $totalQuantity += (float) $tx->product->quantity;
-        }
+            // Totals are for approved transactions only
+            if ($isApproved)
+            {
+              $totalTransactions++;
+              $totalAmount += (float) $tx->action->amount;
+              $totalQuantity += (float) $tx->product->quantity;
+            }
+          }
 
 
-        /*
+          /*
          * Pagination
          */
-        $limit = 20;
+          $limit = 20;
 
-        $page = Factory::getApplication()
+          $page = Factory::getApplication()
             ->input
             ->getInt('page', 1);
 
-        $totalPages = ceil(count($allTransactions) / $limit);
+          $totalPages = ceil(count($allTransactions) / $limit);
 
-        $offset = ($page - 1) * $limit;
+          $offset = ($page - 1) * $limit;
 
-        $transactionsPage = array_slice(
+          $transactionsPage = array_slice(
             $allTransactions,
             $offset,
             $limit
-        );
+          );
 
 
-        /*
+          /*
          * Display transactions
          */
-        foreach ($transactionsPage as $tx)
-        {
+          foreach ($transactionsPage as $tx)
+          {
 
             $isFailed = (
-                (string) $tx->action->response_code !== '100'
-                || (string) $tx->action->success !== '1'
+              (string) $tx->action->response_code !== '100'
+              || (string) $tx->action->success !== '1'
             );
 
 
@@ -178,11 +182,11 @@ if (!empty($this->fromDate) && !empty($this->toDate))
 
 
             echo '<td>' .
-                htmlspecialchars(
-                    (string)$tx->action->response_code . ' ' .
-                    (string)$tx->action->success
-                ) .
-            '</td>';
+              htmlspecialchars(
+              (string)$tx->action->response_code . ' ' .
+              (string)$tx->action->success
+            ) .
+              '</td>';
 
             echo '<td>' . htmlspecialchars((string)$tx->action->username) . '</td>';
 
@@ -190,8 +194,8 @@ if (!empty($this->fromDate) && !empty($this->toDate))
 
 
             $date = \DateTime::createFromFormat(
-                'YmdHis',
-                (string)$tx->action->date
+              'YmdHis',
+              (string)$tx->action->date
             );
 
             echo '<td>' . ($date ? $date->format('d M Y') : '') . '</td>';
@@ -201,20 +205,20 @@ if (!empty($this->fromDate) && !empty($this->toDate))
 
             echo '<td>' . htmlspecialchars((string)$tx->action->action_type) . '</td>';
 
-            echo '<td>$' .
-                number_format((float)$tx->action->amount,2) .
-            '</td>';
+            echo '<td class="amount">$' .
+              number_format((float)$tx->action->amount,2) .
+              '</td>';
 
             echo '<td>' .
-                htmlspecialchars((string)$tx->action->response_text) .
-            '</td>';
+              htmlspecialchars((string)$tx->action->response_text) .
+              '</td>';
 
             echo '<td>' .
-                htmlspecialchars(
-                    (string)$tx->first_name . ' ' .
-                    (string)$tx->last_name
-                ) .
-            '</td>';
+              htmlspecialchars(
+              (string)$tx->first_name . ' ' .
+              (string)$tx->last_name
+            ) .
+              '</td>';
 
             echo '<td>' . htmlspecialchars((string)$tx->order_description) . '</td>';
 
@@ -226,69 +230,69 @@ if (!empty($this->fromDate) && !empty($this->toDate))
 
 
             echo '</tr>';
-        }
+          }
 
-?>
-<!--
-<tfoot>
-<tr class="calpay-total-row">
-    <td colspan="6" class="text-end">
-        <strong>Totals</strong>
-    </td>
-    <td>
-        <strong>
+      ?>
+
+    <tfoot>
+      <tr class="calpay-total-row">
+        <td colspan="6" class="text-end">
+          <strong>Total of Approved </strong>
+        </td>
+        <td>
+          <strong>
             $<?php echo number_format($totalAmount,2); ?>
-        </strong>
-    </td>
-    <td colspan="5"></td>
-    <td>
-        <strong>
-            <?php echo number_format($totalQuantity,4); ?>
-        </strong>
-    </td>
-</tr>
+          </strong>
+        </td>
+        <td colspan="5"></td>
+        <td>
+          <strong>
+            <?php //echo number_format($totalQuantity,4); ?>
+          </strong>
+        </td>
+      </tr>
 
-<tr class="calpay-total-row">
-    <td colspan="13" class="text-center">
-        <strong>
+      <tr class="calpay-total-row">
+        <td colspan="13" class="text-center">
+          <strong>
             <?php echo $totalTransactions; ?> Transactions
-        </strong>
-    </td>
-</tr>
-</tfoot>
--->
-<?php
+          </strong>
+        </td>
+      </tr>
+    </tfoot>
 
-    }
-}
+    <?php
 
-?>
+        }
+      }
+
+    ?>
   </table>
-  
+
   <?php if (!empty($totalPages) && $totalPages > 1): ?>
 
-<nav>
-<ul class="pagination justify-content-center">
+  <nav>
+    <ul class="pagination justify-content-center">
 
-<?php for ($i = 1; $i <= $totalPages; $i++): ?>
+      <?php for ($i = 1; $i <= $totalPages; $i++): ?>
 
-<li class="page-item <?php echo ($page == $i) ? 'active' : ''; ?>">
+      <li class="page-item <?php echo ($page == $i) ? 'active' : ''; ?>">
 
-<a class="page-link"
-href="calpay/transactions?from_date=<?php echo $this->fromDate; ?>&to_date=<?php echo $this->toDate; ?>&approved_only=<?php echo $this->approvedOnly; ?>&page=<?php echo $i; ?>">
+        <a class="page-link"
+           href="calpay/transactions?from_date=<?php echo $this->fromDate; ?>&to_date=<?php echo $this->toDate; ?>&approved_only=<?php echo $this->approvedOnly; ?>&page=<?php echo $i; ?>">
 
-<?php echo $i; ?>
+          <?php echo $i; ?>
 
-</a>
+        </a>
 
-</li>
+      </li>
 
-<?php endfor; ?>
+      <?php endfor; ?>
 
-</ul>
-</nav>
+    </ul>
+  </nav>
 
-<?php endif; ?>
+  <?php endif; ?>
 ```
 
 > Deliver dynamic, custom front-end experiences with this reusable Site View crafted for seamless data flow and design flexibility in JCB.
