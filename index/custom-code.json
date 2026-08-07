@@ -1,0 +1,9 @@
+{
+    "loggingSetUp": {
+        "name": "Logging",
+        "desc": "JCB (manual)",
+        "path": "src\/custom_code\/loggingSetUp",
+        "settings": "src\/custom_code\/loggingSetUp\/item.json",
+        "guid": "loggingSetUp"
+    }
+}
